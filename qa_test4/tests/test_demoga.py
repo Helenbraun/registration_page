@@ -8,7 +8,7 @@ from qa_test.model import registration_page_one
 
 # GIVEN
 def test_authorization(in_browser):
-    User(
+    user = User(
         first_name='Test',
         last_name='Testovuy',
         email='Perty@mail.ru',
@@ -24,8 +24,9 @@ def test_authorization(in_browser):
         state="NCR",
         city='Karnal'
     )
-    registration_page = RegistrationFormPage
+
+    registration_page = RegistrationFormPage()
     registration_page.page_open()
 
 
-    registration_page.type_first_name(User.first_name)
+    registration_page.type_first_name(user.first_name)
