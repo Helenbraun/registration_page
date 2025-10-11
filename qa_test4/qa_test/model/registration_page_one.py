@@ -59,7 +59,7 @@ class RegistrationFormPage:
       self.hobby.click()
 
     def upload_picture(self, upload_filename):
-      self.upload_filename.type(os.path.abspath(os.path.join(os.path.dirname(tests.__file__), 'resources/py.jpg')))
+      self.upload_filename.type(os.path.abspath(os.path.join(os.path.dirname(tests.__file__), upload_filename)))
 
 
     def type_currentAddress(self, currentAddress):
