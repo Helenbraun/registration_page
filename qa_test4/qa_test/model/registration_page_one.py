@@ -19,9 +19,10 @@ class RegistrationFormPage:
         #self.date_of_birth_month = browser.element('.react-datepicker__month-select')
         #self.date_of_birth_year = browser.element('.react-datepicker__year-select')
         self.subject = browser.element('#subjectsInput')
-        #self.hobby = browser.element('[for=hobbies-checkbox-3]')
+        self.hobby = browser.all('[id=hobbiesWrapper]')
         self.upload_filename = browser.element('#uploadPicture')
         self.currentAddress = browser.element('#currentAddress')
+        self.submit = browser.element('#submit')
 
     @staticmethod
     def page_open():
@@ -52,15 +53,18 @@ class RegistrationFormPage:
 
 
     def type_subject(self, subject):
-      self.subject.type(subject).press_enter()
+        self.subject.type(subject).press_enter()
 
 
     def choose_hobby(self, hobby):
-      self.hobby.click()
+        self.hobby.element_by(have.text(hobby)).click()
 
     def upload_picture(self, upload_filename):
-      self.upload_filename.type(os.path.abspath(os.path.join(os.path.dirname(tests.__file__), 'resources/py.jpg')))
+      self.upload_filename.type(os.path.abspath(os.path.join(os.path.dirname(tests.__file__), upload_filename)))
 
 
     def type_currentAddress(self, currentAddress):
       self.currentAddress.type(currentAddress)
+
+    def submit_form(self):
+        self.submit.click()

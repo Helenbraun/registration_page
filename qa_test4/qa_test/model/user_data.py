@@ -5,7 +5,7 @@ class Subjects(Enum):
     math = "Maths"
     chemistry = "Chemistry"
     english = "English"
-    biology = "Biplpgy"
+    biology = "Biology"
 
 @dataclass
 class User:
